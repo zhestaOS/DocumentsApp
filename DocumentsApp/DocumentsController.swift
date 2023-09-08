@@ -55,6 +55,8 @@ class DocumentsController: UITableViewController {
     }
 }
 
+// MARK: - Extensions
+
 extension DocumentsController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     func showImagePickerController() {
