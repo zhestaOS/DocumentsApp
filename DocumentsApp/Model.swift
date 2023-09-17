@@ -16,7 +16,11 @@ class Model {
     }
 
     var items: [String] {
-        return (try? FileManager.default.contentsOfDirectory(atPath: path)) ?? []
+        if UserDefaults().bool(forKey: isSortToAlphabetical) {
+            return (try? FileManager.default.contentsOfDirectory(atPath: path))?.sorted(by: { $0 > $1 }) ?? []
+        } else {
+            return (try? FileManager.default.contentsOfDirectory(atPath: path))?.sorted(by: { $0 < $1 }) ?? []
+        }
     }
 
     func addImage(image: UIImage) {
